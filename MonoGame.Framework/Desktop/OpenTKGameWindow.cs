@@ -318,11 +318,11 @@ namespace Microsoft.Xna.Framework
 
         internal void ChangeClientBounds(Rectangle clientBounds)
         {
-            if (!updateClientBounds)
-            {
-                updateClientBounds = true;
-                this.clientBounds = clientBounds;
-            }
+            AllowUserResizing = true;
+            updateClientBounds = true;
+            this.clientBounds = clientBounds;
+            window.ClientSize = new Size(clientBounds.Width, clientBounds.Height);
+            AllowUserResizing = false;
         }
 
         #endregion
